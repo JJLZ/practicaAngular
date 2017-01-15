@@ -4,16 +4,10 @@
     </div>
     <div *ngIf="_products?.length > 0" class="small-up-2 medium-up-4 large-up-6">
 
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-        | Green Path                                                       |
-        |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-        | Suscribe el componente ProductComponent al evento que hayas      |
-        | definido en él para notificar los clics sobre los productos.     |
-        |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
         <product
             *ngFor="let product of _products"
             [data]="product"
+            (buttonShowDetailsClicked)="showDetailsPage($event)"
             class="column">
         </product>
     </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 import { Product } from "../../models/product";
 
@@ -9,15 +9,10 @@ import { Product } from "../../models/product";
 export class ProductComponent {
 
     @Input() data: Product;
+    @Output() buttonShowDetailsClicked: EventEmitter<Product> = new EventEmitter<Product>();
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    | Green Path                                                       |
-    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    | Expón un atributo de salida con el decorador correspondiente. El |
-    | tipo de dicho atributo debe permitir la emisión de eventos; la   |
-    | idea es enviar al componente padre el producto sobre el cuál se  |
-    | ha hecho clic. Y puesto que dicho clic se realiza en el template |
-    | de este componente, necesitas, además, un manejador para el      |
-    | mismo.                                                           |
-    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    showDetails() {
+        console.log("testClick");
+        this.buttonShowDetailsClicked.emit(this.data);
+    }
 }
